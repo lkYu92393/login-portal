@@ -16,7 +16,7 @@ const getEventFunction = async (req, res, next) => {
         console.log(err)
     }
 
-    if (events && events.length > 0) {
+    if (events) {
         result.result = true
         result.data = events
     }

@@ -12,7 +12,7 @@ const verifyFunction = async (req, res, next) => {
         try {
             account = await accountService.getAccountByToken(req.body.token)
 
-            result.result = account && ((account.lastLogin.toDate().valueOf() + 72 * 60 * 60 * 1000) > new Date().valueOf())
+            result.result = account && ((account.lastLogin + 72 * 60 * 60 * 1000) > new Date().valueOf())
 
             if (result.result) {
                 // update login time

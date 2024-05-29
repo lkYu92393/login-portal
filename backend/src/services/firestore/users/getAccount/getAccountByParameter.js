@@ -15,10 +15,14 @@ const getAccountByParameter = async (parameter, value) => {
     } catch (err) {
         console.log(err)
     }
-    
+
+    const data = account.data()
+    delete lastUpdate
+
     return {
         id: account.id,
-        ...account.data()
+        ...data,
+        lastLogin: data.lastLogin.toDate().valueOf(),
     }
 }
 

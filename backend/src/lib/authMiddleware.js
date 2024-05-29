@@ -1,4 +1,4 @@
-const firestore = require('./firestore')
+const { accountService } = require('../services')
 
 const checkSessionToken = async (req, res, next) => {
     if (req.url.indexOf("login") > -1 || req.url.indexOf("verify") > -1) {
@@ -7,22 +7,13 @@ const checkSessionToken = async (req, res, next) => {
 
     const sessionToken = req.headers.authtoken || ''
 
-    const accountsSnapshot = await firestore
-        .collection("users")
-        .where('sessionToken', '==', sessionToken)
-        .get();
+    const account = await accountService.getAccountByToken(sessionToken)
 
-    if (accountsSnapshot.docs.length > 0) {
-        let data = accountsSnapshot.docs[0].data()
-        req.user = {
-            id: data.id,
-            username: data.username,
-            role: data.role,
-            sessionToken: data.sessionToken,
-        }
+    if (account) {
+        req.user = account
         return next()
     } else {
-        res.status(403).end()
+        return res.status(403).end()
     }
 }
 
