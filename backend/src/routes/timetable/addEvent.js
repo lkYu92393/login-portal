@@ -20,8 +20,6 @@ const addEventFunction = async (req, res, next) => {
             data.start = new Date(data.start)
             data.end = new Date(data.end)
             data.username = req.user.username
-            data.createdTime = new Date()
-            data.lastUpdatedTime = new Date()
 
             const res = await eventService.addEvent(data)
 

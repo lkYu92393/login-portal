@@ -14,8 +14,7 @@ const changeEventFunction = async (req, res, next) => {
                 end: new Date(req.body.end),
                 location: req.body.location,
                 type: req.body.type,
-                remarks: req.body.remarks,
-                lastUpdatedTime: new Date()
+                remarks: req.body.remarks
             })
 
             result.result = true
