@@ -13,27 +13,24 @@ const loginFunction = async (req, res, next) => {
     if (req.body.username && req.body.password) {
         account = await accountService.getAccountByUsername(req.body.username)
 
-        if (account.length === 0) {
+        if (!account || account.length === 0) {
             result.remarks = "Account not exists."
         } else {
             // check password
-            const id = account.id
-            const accountData = account.data()
-
             const userPassword = createHash('sha256').update(req.body.password).digest('hex')
     
-            if (accountData.password !== userPassword) {
+            if (account.password !== userPassword) {
                 result.remarks = "Wrong password"
             } else {
                 result.result = true
                 result.data = {
-                    username: accountData.username,
+                    username: account.username,
                     token: getCharArray(),
-                    role: accountData.role
+                    role: account.role
                 }
     
                 // update login time
-                await accountService.updateAccount(id, {
+                await accountService.updateAccount(account.id, {
                     lastLogin: new Date(),
                     sessionToken: result.data.token
                 })

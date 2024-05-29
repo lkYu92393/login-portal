@@ -1,4 +1,4 @@
-const firestore = require('../../../lib/firestore')
+const firestore = require('../../../../lib/firestore')
 
 const getAccountByParameter = async (parameter, value) => {
     let account = null
@@ -15,7 +15,11 @@ const getAccountByParameter = async (parameter, value) => {
     } catch (err) {
         console.log(err)
     }
-    return account
+    
+    return {
+        id: account.id,
+        ...account.data()
+    }
 }
 
 module.exports = { getAccountByParameter }

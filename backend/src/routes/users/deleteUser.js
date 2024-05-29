@@ -13,12 +13,9 @@ const deleteUserFunction = async (req, res, next) => {
 
             if (account) {
                 result.result = true
-                const id = account.id
-
                 // update login time
-                await accountService.updateAccount(id, {
+                await accountService.updateAccount(account.id, {
                     isDeleted: 1,
-                    lastUpdate: new Date(),
                 })
             }
         } catch (err) {

@@ -13,13 +13,13 @@ const userinfoFunction = async (req, res, next) => {
             account = await accountService.getAccountByToken(req.user.sessionToken)
             if (account) {
                 result.result = true
-                const accountData = account.data()
     
-                delete accountData.password
-                delete accountData.lastLogin
-                delete accountData.lastUpdate
-                delete accountData.sessionToken
-                result.data = accountData
+                delete account.password
+                delete account.lastLogin
+                delete account.lastUpdate
+                delete account.sessionToken
+                delete account.id
+                result.data = account
             }
 
         } catch (err) {

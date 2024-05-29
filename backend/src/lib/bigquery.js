@@ -7,8 +7,8 @@ const options = {
   projectId: config.projectId
 };
 
-if (fs.existsSync(Path.resolve("../../key/", config.keyFileName))) {
-  options["keyFilename"] = Path.resolve("../../key/", config.keyFileName);
+if (fs.existsSync(Path.resolve(config.keyPath, config.keyFileName))) {
+  options["keyFilename"] = Path.resolve(config.keyPath, config.keyFileName);
 }
 
 module.exports = new BigQuery(options);

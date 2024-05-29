@@ -17,10 +17,6 @@ const getEvents = async () => {
                 end: tempData.end.toDate()
             }
         })
-        // events.forEach(obj => {
-        //     obj.start = obj.start.toDate()
-        //     obj.end = obj.end.toDate()
-        // })
     }
 
     return events

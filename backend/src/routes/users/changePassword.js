@@ -16,10 +16,8 @@ const changePasswordFunction = async (req, res, next) => {
             if (account) {
                 const userPassword = utility.getSHA256HashPassword(req.body.password)
 
-                const id = account.id
-
                 // update login time
-                await accountService.updateAccount(id, {
+                await accountService.updateAccount(account.id, {
                     password: userPassword,
                     lastUpdate: new Date()
                 })

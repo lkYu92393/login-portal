@@ -1,7 +1,8 @@
 let defaultConfig = {
     port: process.env.PORT,
     projectId: "kwun-tong-garage",
-    keyFileName: "kwun-tong-garage-d4ff9fe19bf2.json"
+    keyFileName: "kwun-tong-garage-d4ff9fe19bf2.json",
+    keyPath: "../key/",
 };
 
 if (process.env.NODE_ENV == "development") {

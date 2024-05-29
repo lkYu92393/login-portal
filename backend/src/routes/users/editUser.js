@@ -21,18 +21,14 @@ const editUserFunction = async (req, res, next) => {
                     await accountService.addAccount({
                         ...req.body.data,
                         role: parseInt(req.body.data.role),
-                        lastUpdate: new Date(),
                         password: userPassword,
-                        isDeleted: 0
                     })
                     result.result = true
                 } else {
                     // update login time
-                    const id = account.id
-                    await accountService.updateAccount(id, {
+                    await accountService.updateAccount(account.id, {
                         ...req.body.data,
                         role: parseInt(req.body.data.role),
-                        lastUpdate: new Date(),
                     })
 
                     result.result = true
