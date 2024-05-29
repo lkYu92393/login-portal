@@ -3,6 +3,7 @@ let defaultConfig = {
     projectId: "kwun-tong-garage",
     keyFileName: "kwun-tong-garage-d4ff9fe19bf2.json",
     keyPath: "../key/",
+    db: 'sqlite'
 };
 
 if (process.env.NODE_ENV == "development") {

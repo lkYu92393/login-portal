@@ -1,4 +1,5 @@
-// const services = require('./firestore')
-const services = require('./sqlite')
+const config = require('../config')
+
+const services = config.db === 'sqlite' ? require('./sqlite') : require('./firestore')
 
 module.exports = { ...services }
