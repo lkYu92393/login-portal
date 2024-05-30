@@ -6,9 +6,12 @@ const updateEvent = async (id, data) => {
         try {
             const db = getDb('removeEvent')
 
-            const sql = "update events set where id=?"
+            const updateList = Object.keys(data).concat(['lastUpdatedTime'])
+            const updateValue = Object.keys(data).map(key => data[key]).concat([new Date()])
 
-            db.all(sql, [id],
+            const sql = `update events set ${updateList.map(obj => obj + "=?").join(',')} WHERE id=?;`
+
+            db.all(sql, updateValue.concat(id),
                 (err, rows) => {
                     if (err) {
                         throw err;
@@ -23,12 +26,6 @@ const updateEvent = async (id, data) => {
             resolve(false)
         }
     })
-    const eventsDocument = await firestore
-    .collection("garageEvents")
-    .doc(id)
-    .update(data)
-
-    return eventsDocument
 }
 
 module.exports = { updateEvent }

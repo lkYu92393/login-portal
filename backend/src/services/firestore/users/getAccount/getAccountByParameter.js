@@ -1,7 +1,6 @@
 const firestore = require('../../../../lib/firestore')
 
 const getAccountByParameter = async (parameter, value) => {
-    let account = null
     try {
         const accounts = await firestore
             .collection("users")
@@ -11,6 +10,8 @@ const getAccountByParameter = async (parameter, value) => {
 
         if (accounts.docs.length >= 1) {
             account = accounts.docs[0]
+        } else {
+            return null
         }
     } catch (err) {
         console.log(err)
@@ -18,11 +19,17 @@ const getAccountByParameter = async (parameter, value) => {
 
     const data = account.data()
     delete lastUpdate
+    try {
+        if (data.lastLogin) {
+            data.lastLogin = data.lastLogin.toDate().valueOf()
+        }
+    } catch (err) {
+        console.log(err)
+    }
 
     return {
         id: account.id,
-        ...data,
-        lastLogin: data.lastLogin.toDate().valueOf(),
+        ...data
     }
 }
 

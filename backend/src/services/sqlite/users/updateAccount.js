@@ -11,8 +11,7 @@ const updateAccount = async (id, data) => {
 
             const sql = `UPDATE users set ${updateList.map(obj => obj + "=?").join(',')} WHERE id=?;`
 
-            db.all(sql,
-                updateValue.concat(id),
+            db.all(sql, updateValue.concat(id),
                 (err, rows) => {
                     if (err) {
                         throw err;
