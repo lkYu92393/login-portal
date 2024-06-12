@@ -1,3 +1,5 @@
+const config = require('../config')
+
 const sqlite3 = require('sqlite3').verbose()
 const getDb = (msg = "Connected to sqlite db.") => {
     return new sqlite3.Database('./example.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
@@ -62,4 +64,8 @@ const initDb = () => {
     });
 }
 
-module.exports = { getDb, initDb }
+if (config.db === 'sqlite') {
+    initDb()
+}
+
+module.exports = { getDb }
