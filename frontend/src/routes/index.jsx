@@ -9,7 +9,9 @@ const AppRoutes = () => {
     const { isLoggedIn, verifySession } = React.useContext(AuthContext);
 
     React.useEffect(() => {
-        verifySession()
+        if (isLoggedIn) {
+            verifySession()
+        }
     }, [])
 
     const commonRoutes = [

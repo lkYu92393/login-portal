@@ -21,15 +21,18 @@ const Management = () => {
         fetchUser()
     }, [])
 
+    React.useEffect(() => {
+        setViewUserList(userList.filter(() => true))
+    }, [userList])
+
     const fetchUser = () => {
         axiosInstance.get('user/getusers')
             .then((res) => {
                 if (res.data.result) {
                     let data = res.data.data
+                    data.sort((a, b) => b.role - a.role)
                     setUserList(data)
-                    setViewUserList(data)
                 } else {
-                    console.log(res.data)
                     alert('Failed to get user info. Please contact admin.')
                 }
             })
@@ -46,7 +49,6 @@ const Management = () => {
                     if (res.data.result) {
                         alert('Success. The password is now "P@ssword!". Please ask user to change the password ASAP.')
                     } else {
-                        console.log(res.data)
                         alert('Failed to reset password. Please contact admin.')
                     }
                 })
@@ -69,7 +71,6 @@ const Management = () => {
                     alert(`Success. The user is ${action === 'add' ? 'created' : 'edited'}.`)
                     fetchUser()
                 } else {
-                    console.log(res.data)
                     alert(`Failed to ${action === 'add' ? 'created' : 'edited'}. Please contact admin.`)
                 }
             })
@@ -85,7 +86,6 @@ const Management = () => {
                         alert('Success. The user is deleted.')
                         fetchUser()
                     } else {
-                        console.log(res.data)
                         alert('Failed to reset password. Please contact admin.')
                     }
                 })

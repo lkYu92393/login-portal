@@ -53,7 +53,6 @@ export const Login = () => {
                             <Grid item xs={12}>
                                 <InputLabel id="password-label">Password</InputLabel>
                                 <TextField
-                                    autoFocus
                                     required
                                     margin="dense"
                                     id="password"

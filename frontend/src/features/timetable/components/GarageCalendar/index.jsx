@@ -117,7 +117,7 @@ export function GarageCalendar() {
                         changeInfo.revert()
                     }
                 })
-                .catch((res) => {
+                .catch((rej) => {
                     changeInfo.revert()
                 })
         } else {
@@ -133,7 +133,7 @@ export function GarageCalendar() {
                     removeInfo.revert()
                 }
             })
-            .catch((res) => {
+            .catch((rej) => {
                 removeInfo.revert()
             })
     }

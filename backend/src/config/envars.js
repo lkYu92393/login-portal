@@ -1,7 +1,7 @@
 let defaultConfig = {
     port: process.env.PORT,
-    projectId: "kwun-tong-garage",
-    keyFileName: "kwun-tong-garage-d4ff9fe19bf2.json",
+    projectId: "<your_google_project_id>",
+    keyFileName: "<your_google_api_key>.json",
     keyPath: "../key/",
     db: 'sqlite'
 };

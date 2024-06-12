@@ -54,9 +54,9 @@ const UserDialog = ({ open, setOpen, viewUser, setViewUser, editUser }) => {
                         handleClose();
                     },
                 }}
-                sx={{p:4}}
+                sx={{ p: 4 }}
             >
-                <DialogTitle>
+                <DialogTitle style={{ width: '320px' }}>
                     {
                         viewUser.username === '' ? 'Add User' : 'Edit User'
                     }

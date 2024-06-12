@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
                         axiosInstance.defaults.headers.authToken = res.data.data.token
                         setIsLoggedIn(true);
                     } else {
-                        alert("Login failed.")
+                        alert("Login failed. Wrong credential. ")
                     }
                     return res.data;
                 })
@@ -44,11 +44,11 @@ const AuthProvider = ({ children }) => {
             })
                 .then((res) => {
                     if (!res.data.result) {
+                        alert('Section expired or someone login at another devices.')
                         logout()
                     }
                 })
-                .catch((res) => {
-                    alert('Section expired or someone login at another devices.')
+                .catch((rej) => {
                     logout()
                 })
         } catch (err) {
