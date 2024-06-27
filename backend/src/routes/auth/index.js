@@ -2,7 +2,7 @@ var express = require('express');
 const loginFunction = require('./login')
 const verifyFunction = require('./verify')
 
-const { checkSessionToken } = require('../../lib/authMiddleware')
+const { checkSessionToken } = require('lib/authMiddleware')
 
 var router = express.Router();
 

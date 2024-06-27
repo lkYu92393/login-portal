@@ -1,5 +1,4 @@
-
-const { accountService } = require('../../services')
+const { accountService } = require('services')
 
 const deleteUserFunction = async (req, res, next) => {
     const result = {

@@ -1,5 +1,4 @@
-const config = require('../config')
+const { eventService } = require('./event')
+const { accountService } = require('./users')
 
-const services = config.db === 'sqlite' ? require('./sqlite') : require('./firestore')
-
-module.exports = { ...services }
+module.exports = { eventService, accountService }

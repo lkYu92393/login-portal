@@ -1,6 +1,5 @@
-
-const { accountService } = require('../../services')
-const utility = require('../../lib/utility')
+const { accountService } = require('services')
+const utility = require('lib/utility')
 
 const editUserFunction = async (req, res, next) => {
     const result = {

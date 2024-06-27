@@ -1,4 +1,4 @@
-const firestore = require('../../../../lib/firestore')
+const firestore = require('lib/firestore')
 
 const getAccountByParameter = async (parameter, value) => {
     try {

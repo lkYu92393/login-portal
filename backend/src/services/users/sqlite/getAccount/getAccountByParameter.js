@@ -1,4 +1,4 @@
-const { getDb } = require('../../../../lib/sqlitedb')
+const { getDb } = require('lib/sqlitedb')
 
 const getAccountByParameter = async (parameter, value) => {
     return new Promise((resolve, reject) => {
