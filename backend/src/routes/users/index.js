@@ -5,7 +5,7 @@ const deleteUserFunction = require('./deleteUser')
 const changePasswordFunction = require('./changePassword')
 const getUsersFunction = require('./getUsers')
 
-const { checkSessionToken } = require('../../lib/authMiddleware')
+const { checkSessionToken } = require('lib/authMiddleware')
 
 var router = express.Router();
 

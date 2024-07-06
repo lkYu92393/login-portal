@@ -4,7 +4,7 @@ var addEventFunction = require('./addEvent')
 var changeEventFunction = require('./changeEvent')
 var removeEventFunction = require('./removeEvent')
 
-const { checkSessionToken } = require('../../lib/authMiddleware')
+const { checkSessionToken } = require('lib/authMiddleware')
 
 var router = express.Router();
 

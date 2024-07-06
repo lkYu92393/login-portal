@@ -1,4 +1,4 @@
-const config = require('../../config')
+const config = require('config')
 
 const accountService = config.db === 'sqlite' ? require('./sqlite') : require('./firestore')
 

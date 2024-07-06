@@ -1,5 +1,5 @@
 
-const { accountService } = require('../../services')
+const { accountService } = require('services')
 
 const getUsersFunction = async (req, res, next) => {
 

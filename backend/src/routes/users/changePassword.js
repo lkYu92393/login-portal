@@ -1,6 +1,6 @@
 
-const { accountService } = require('../../services')
-const utility = require('../../lib/utility')
+const { accountService } = require('services')
+const utility = require('lib/utility')
 
 const changePasswordFunction = async (req, res, next) => {
 

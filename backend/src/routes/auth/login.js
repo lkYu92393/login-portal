@@ -1,8 +1,7 @@
 
-const { getCharArray } = require('../../lib/utility')
-const { createHash } = require('crypto')
+const { getCharArray, getSHA256HashPassword } = require('lib/utility')
 
-const { accountService } = require('../../services')
+const { accountService } = require('services')
 
 const loginFunction = async (req, res, next) => {
     const result = {
@@ -17,7 +16,7 @@ const loginFunction = async (req, res, next) => {
             result.remarks = "Account not exists."
         } else {
             // check password
-            const userPassword = createHash('sha256').update(req.body.password).digest('hex')
+            const userPassword = getSHA256HashPassword(req.body.password)
     
             if (account.password !== userPassword) {
                 result.remarks = "Wrong password"

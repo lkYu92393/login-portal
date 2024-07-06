@@ -1,4 +1,4 @@
-const firestore = require('../../../../lib/firestore')
+const firestore = require('lib/firestore')
 
 const getAccounts = async () => {
     const accounts = await firestore

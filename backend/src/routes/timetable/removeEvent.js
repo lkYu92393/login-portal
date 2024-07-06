@@ -1,5 +1,5 @@
 
-const { eventService } = require('../../services')
+const { eventService } = require('services')
 
 const removeEventFunction = async (req, res, next) => {
     const result = {
