@@ -10,5 +10,15 @@
             ],
             "type": "node"
         },
+        {
+            "name": "Launch Backend Bundle",
+            "cwd": "${workspaceFolder}/backend",
+            "program": "./dist/bundle.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
     ]
 }

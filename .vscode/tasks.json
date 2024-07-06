@@ -17,6 +17,13 @@
 			"problemMatcher": [],
 			"label": "npm: dev - frontend",
 			"detail": "vite"
+		},
+		{
+			"type": "npm",
+			"script": "webpack",
+			"path": "backend",
+			"problemMatcher": [],
+			"label": "npm: webpack",
 		}
 	]
 }

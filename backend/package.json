@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "webpack": "webpack build"
   },
   "dependencies": {
     "@google-cloud/bigquery": "^7.6.0",
@@ -16,5 +17,9 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
