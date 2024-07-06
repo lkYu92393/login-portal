@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Launch Program",
+            "name": "Launch Backend",
             "cwd": "${workspaceFolder}/backend",
             "program": "./src/bin/www",
             "request": "launch",
