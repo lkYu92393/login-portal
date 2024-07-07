@@ -8,7 +8,8 @@ The backend uses node.js and express as base. When dockerized, it is directly se
 
 # frontend
 
-This frontend repo is simply a login portal and a timetable, making use of full calendar library.
+This frontend repo is initialed with Vite + Javascript.
+The frontend is a simple web portal with a timetable function, using the full calendar library.
 
 The login is handled simply using react context and local storage. When log-in, the app stores the session token and various users variable in local storage. While these storages are used for access right, the backend server also double check the user rights before executing actions.
 
@@ -16,6 +17,9 @@ The architecture is inspired by bulletproof react.
 
 # backend
 
-This back end repo is an express server powered by Node.JS.
+The backend part is initialized using express generator.
+The stack is an express server powered by NodeJS.
 
-It used an architecture of routes + services. It tries to pack the logic in the routes files while keeping the database in and out in services. With this approach, it allows the database to be swapped with minimal changes to logic.
+It used an architecture of routes + services. In the first layer, it simply expose the service. In the deeper layers, depending on the database/logic, different source codes can be used so to minimize the impact when switching to other database/source.
+
+It also used webpack for better organization. Webpack is a tool usually used in frontend project because it can minimized file size and make code harder to read and increase the diffculty to be read. But it can also be used in backend. It provides the function to define an alias so import can be done using absolute path instead of relative path. The problem with relative path is that it is difficult to restructure the file after the first commit. 
